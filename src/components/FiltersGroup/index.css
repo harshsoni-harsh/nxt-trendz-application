@@ -1,0 +1,62 @@
+.filters-group-container {
+  margin-top: 16px;
+}
+
+@media screen and (min-width: 768px) {
+  .filters-group-container {
+    width: 30%;
+    max-width: 350px;
+    margin-top: 48px;
+    flex-shrink: 0;
+  }
+}
+
+/* Write your CSS here */
+ul {
+  list-style: none;
+  padding: 0;
+}
+li > button,
+li > button > * {
+  display: flex;
+  align-items: center;
+  background-color: transparent;
+  border: none;
+  padding: 5px 0;
+  font-weight: 500;
+  color: #64748b;
+}
+li > button > img {
+  height: 20px;
+  pointer-events: none;
+}
+button > p {
+  pointer-events: none;
+  margin: 0;
+}
+button:active {
+  transform: scale(1.04);
+}
+.searchBar {
+  padding: 5px 10px;
+  border: none;
+  background-color: #f1f5f9;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.searchBar > input {
+  background: transparent;
+  border: none;
+  outline: none;
+  width: 100%;
+}
+.btn-primary {
+  background-color: transparent;
+  border: 2px solid #0967d2;
+  border-radius: 6px;
+  color: #0967d2;
+  padding: 5px 10px;
+  font-weight: bold;
+}
