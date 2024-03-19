@@ -61,7 +61,6 @@ class PrimeDealsSection extends Component {
 
   renderPrimeDealsList = () => {
     const {primeDeals} = this.state
-
     return (
       <div>
         <h1 className="primedeals-list-heading">Exclusive Prime Deals</h1>
@@ -77,8 +76,8 @@ class PrimeDealsSection extends Component {
   renderPrimeDealsFailureView = () => (
     <img
       src="https://assets.ccbp.in/frontend/react-js/exclusive-deals-banner-img.png"
-      alt="register prime"
-      className="register-prime-img"
+      alt="Register Prime"
+      className="register-prime-image"
     />
   )
 

@@ -1,14 +1,10 @@
-import { withRouter } from "react-router-dom";
 import "./index.css";
 
-const ProductCard = (props) => {
-  const { productData, history } = props;
-  const { title, id, brand, imageUrl, rating, price } = productData;
-  const openProduct = () => {
-    history.push(`/products/${id}`)
-  }
+const SimilarProductItem = (props) => {
+  const { productsData, } = props;
+  const { title, brand, imageUrl, rating, price } = productsData;
   return (
-    <li className="product-item" onClick={openProduct}>
+    <li className="product-item">
       <img src={imageUrl} alt="product" className="thumbnail" />
       <h1 className="title">{title}</h1>
       <p className="brand">by {brand}</p>
@@ -26,4 +22,4 @@ const ProductCard = (props) => {
     </li>
   );
 };
-export default withRouter(ProductCard);
+export default SimilarProductItem;

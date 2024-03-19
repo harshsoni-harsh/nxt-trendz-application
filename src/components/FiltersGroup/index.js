@@ -1,69 +1,113 @@
-import {FaSearch} from 'react-icons/fa'
+import {BsSearch} from 'react-icons/bs'
+
 import './index.css'
 
 const FiltersGroup = props => {
-  const {
-    ratingsList,
-    onRatingChange,
-    categoryOptions,
-    onCategoryChange,
-    changeSearchInput,
-    clearFilters,
-    enterSearch,
-  } = props
-  const submitSearch = e => {
-    const {value} = e.target
-    changeSearchInput(value)
-    if (e.key === 'Enter') {
-      enterSearch()
+  const renderRatingsFiltersList = () => {
+    const {ratingsList} = props
+
+    return ratingsList.map(rating => {
+      const {changeRating, activeRatingId} = props
+      const onClickRatingItem = () => changeRating(rating.ratingId)
+
+      const ratingClassName =
+        activeRatingId === rating.ratingId ? `and-up active-rating` : `and-up`
+
+      return (
+        <li
+          className="rating-item"
+          key={rating.ratingId}
+          onClick={onClickRatingItem}
+        >
+          <img
+            src={rating.imageUrl}
+            alt={`rating ${rating.ratingId}`}
+            className="rating-image"
+          />
+          <p className={ratingClassName}>& up</p>
+        </li>
+      )
+    })
+  }
+
+  const renderRatingsFilters = () => (
+    <div>
+      <h1 className="rating-heading">Rating</h1>
+      <ul className="ratings-list">{renderRatingsFiltersList()}</ul>
+    </div>
+  )
+
+  const renderCategoriesList = () => {
+    const {categoryOptions} = props
+
+    return categoryOptions.map(category => {
+      const {changeCategory, activeCategoryId} = props
+      const onClickCategoryItem = () => changeCategory(category.categoryId)
+      const isActive = category.categoryId === activeCategoryId
+      const categoryClassName = isActive
+        ? `category-name active-category-name`
+        : `category-name`
+
+      return (
+        <li
+          className="category-item"
+          key={category.categoryId}
+          onClick={onClickCategoryItem}
+        >
+          <p className={categoryClassName}>{category.name}</p>
+        </li>
+      )
+    })
+  }
+
+  const renderProductCategories = () => (
+    <>
+      <h1 className="category-heading">Category</h1>
+      <ul className="categories-list">{renderCategoriesList()}</ul>
+    </>
+  )
+
+  const onEnterSearchInput = event => {
+    const {enterSearchInput} = props
+    if (event.key === 'Enter') {
+      enterSearchInput()
     }
   }
-  const categoryChange = e => {
-    const {id} = e.target
-    onCategoryChange(id)
+
+  const onChangeSearchInput = event => {
+    const {changeSearchInput} = props
+    changeSearchInput(event.target.value)
   }
-  const ratingChange = e => {
-    const {id} = e.target
-    onRatingChange(id)
+
+  const renderSearchInput = () => {
+    const {searchInput} = props
+    return (
+      <div className="search-input-container">
+        <input
+          value={searchInput}
+          type="search"
+          className="search-input"
+          placeholder="Search"
+          onChange={onChangeSearchInput}
+          onKeyDown={onEnterSearchInput}
+        />
+        <BsSearch className="search-icon" />
+      </div>
+    )
   }
+
+  const {clearFilters} = props
+
   return (
     <div className="filters-group-container">
-      <div className="searchBar">
-        <input type="search" placeholder="Search" onKeyDown={submitSearch} />
-        <FaSearch />
-      </div>
-      <h3>Category</h3>
-      <ul>
-        {categoryOptions.map(category => (
-          <li key={category.categoryId}>
-            <button
-              id={category.categoryId}
-              type="button"
-              onClick={categoryChange}
-            >
-              <p>{category.name}</p>
-            </button>
-          </li>
-        ))}
-      </ul>
-      <h3>Rating</h3>
-      <ul>
-        {ratingsList.map(rating => (
-          <li key={rating.ratingId}>
-            <button id={rating.ratingId} onClick={ratingChange} type="button">
-              {/* eslint-disable */}
-              <img
-                src={rating.imageUrl}
-                alt={'rating ' + rating.ratingId}
-              />{' '}
-              &nbsp;
-              {' & up'}
-              {/* eslint-enable */}
-            </button>
-          </li>
-        ))}
-      </ul>
-      <button className="btn-primary" type="button" onClick={clearFilters}>
+      {renderSearchInput()}
+      {renderProductCategories()}
+      {renderRatingsFilters()}
+      <button
+        type="button"
+        className="clear-filters-btn"
+        onClick={clearFilters}
+      >
         Clear Filters
       </button>
     </div>

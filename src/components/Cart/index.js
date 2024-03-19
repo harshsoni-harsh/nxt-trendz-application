@@ -1,5 +1,4 @@
 import Header from '../Header'
-
 import './index.css'
 
 const Cart = () => (

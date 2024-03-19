@@ -22,15 +22,12 @@ const Header = props => {
               alt="website logo"
             />
           </Link>
-          <button
-            type="button"
-            className="nav-mobile-btn"
-            onClick={onClickLogout}
-          >
+          <button type="button" className="nav-mobile-btn">
             <img
               src="https://assets.ccbp.in/frontend/react-js/nxt-trendz-log-out-img.png"
               alt="nav logout"
-              className="nav-bar-img"
+              className="nav-bar-image"
+              onClick={onClickLogout}
             />
           </button>
         </div>
@@ -78,7 +75,7 @@ const Header = props => {
               <img
                 src="https://assets.ccbp.in/frontend/react-js/nxt-trendz-home-icon.png"
                 alt="nav home"
-                className="nav-bar-img"
+                className="nav-bar-image"
               />
             </Link>
           </li>
@@ -88,7 +85,7 @@ const Header = props => {
               <img
                 src="https://assets.ccbp.in/frontend/react-js/nxt-trendz-products-icon.png"
                 alt="nav products"
-                className="nav-bar-img"
+                className="nav-bar-image"
               />
             </Link>
           </li>
@@ -97,7 +94,7 @@ const Header = props => {
               <img
                 src="https://assets.ccbp.in/frontend/react-js/nxt-trendz-cart-icon.png"
                 alt="nav cart"
-                className="nav-bar-img"
+                className="nav-bar-image"
               />
             </Link>
           </li>

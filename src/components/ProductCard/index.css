@@ -1,3 +1,5 @@
+/* TODO: Add your CSS here */
+
 .product-item {
   display: flex;
   flex-direction: column;
@@ -57,6 +59,8 @@
   background-color: #3b82f6;
   border-radius: 6px;
   padding: 6px 16px;
+  width: fit-content;
+  height: 100%;
 }
 
 .rating {

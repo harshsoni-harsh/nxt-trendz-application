@@ -16,24 +16,24 @@
   }
 }
 
-.login-website-logo-mobile-img {
+.login-website-logo-mobile-image {
   width: 165px;
   margin-top: 50px;
   margin-bottom: 35px;
 }
 
 @media screen and (min-width: 992px) {
-  .login-website-logo-mobile-img {
+  .login-website-logo-mobile-image {
     display: none;
   }
 }
 
-.login-img {
+.login-image {
   width: 278px;
 }
 
 @media screen and (min-width: 992px) {
-  .login-img {
+  .login-image {
     width: 60%;
     max-width: 524px;
     flex-shrink: 1;
@@ -41,12 +41,12 @@
   }
 }
 
-.login-website-logo-desktop-img {
+.login-website-logo-desktop-image {
   width: 185px;
 }
 
 @media screen and (max-width: 991px) {
-  .login-website-logo-desktop-img {
+  .login-website-logo-desktop-image {
     display: none;
   }
 }
@@ -122,8 +122,8 @@
   background-color: #0b69ff;
   border-radius: 8px;
   border: none;
-  cursor: pointer;
   outline: none;
+  cursor: pointer;
 }
 
 .error-message {
