@@ -1,0 +1,26 @@
+.cart-summary-container {
+  display: flex;
+  flex-direction: column;
+  max-width: fit-content;
+  align-self: flex-end;
+}
+.cart-summary-container p {
+  margin: 0;
+  color: #616e7c;
+}
+.cart-summary-container p:nth-child(1) {
+  font-weight: bold;
+  font-size: 20px;
+}
+.cart-summary-container p span {
+  color: black;
+  font-size: 24px;
+}
+.cart-summary-container button {
+  margin-top: 15px;
+  background-color: #0b69ff;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+}
